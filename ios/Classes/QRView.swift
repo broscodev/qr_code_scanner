@@ -167,9 +167,9 @@ public class QRView:NSObject,FlutterPlatformView {
                                 }
                                 //guard let stringValue = code.stringValue else { continue }
 
-                                String? rawValue = code.stringValue.data(using: .utf8)
+                                guard let rawValue = code.stringValue.data(using: .utf8) else { continue }
 
-                                guard let stringValue = String(data: rawValue!, encoding: .ascii) else { continue }
+                                guard let stringValue = String(data: rawValue, encoding: .ascii) else { continue }
 
                                let result = ["code": stringValue, "type": typeString]
                                 if allowedBarcodeTypes.count == 0 || allowedBarcodeTypes.contains(code.type) {
