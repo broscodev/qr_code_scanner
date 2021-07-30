@@ -165,9 +165,9 @@ public class QRView:NSObject,FlutterPlatformView {
                                     default:
                                         return
                                 }
-                                //guard let stringValue = code.stringValue else { continue }
+//                                guard let stringValue = code.stringValue else { continue }
 
-                                guard let rawValue = code.stringValue.data(using: .utf8) else { continue }
+                                guard let rawValue = code.stringValue?.data(using: .utf8) else { continue }
 
                                 guard let stringValue = String(data: rawValue, encoding: .ascii) else { continue }
 
